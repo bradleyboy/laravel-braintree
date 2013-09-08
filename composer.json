@@ -1,0 +1,30 @@
+{
+    "name": "bradleyboy/laravel-braintree",
+    "description": "",
+    "authors": [
+        {
+            "name": "Brad Daily",
+            "email": "brad@bradleyboy.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mattjanssen/braintree_php"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+        "braintree/braintree_php": "dev-psr-0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Bradleyboy\\Laravel": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
