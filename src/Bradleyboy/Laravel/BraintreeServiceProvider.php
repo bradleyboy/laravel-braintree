@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 
-use \Braintree_Configuration;
+use Braintree;
 
 class BraintreeServiceProvider extends ServiceProvider {
 
@@ -22,22 +22,20 @@ class BraintreeServiceProvider extends ServiceProvider {
 	{
 		$this->package('bradleyboy/laravel-braintree');
 
-		Braintree_Configuration::environment(
+		Braintree\Configuration::environment(
 			$this->app['config']->get('laravel-braintree::braintree.environment')
 		);
-		Braintree_Configuration::merchantId(
+		Braintree\Configuration::merchantId(
 			$this->app['config']->get('laravel-braintree::braintree.merchantId')
 		);
 
-		Braintree_Configuration::publicKey(
+		Braintree\Configuration::publicKey(
 			$this->app['config']->get('laravel-braintree::braintree.publicKey')
 		);
 
-		Braintree_Configuration::privateKey(
+		Braintree\Configuration::privateKey(
 			$this->app['config']->get('laravel-braintree::braintree.privateKey')
 		);
-
-		Braintree_Customer::create();
 
 		$encryptionKey = $this->app['config']->get('laravel-braintree::braintree.clientSideEncryptionKey');
 
