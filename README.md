@@ -26,7 +26,7 @@ Once installed, add the ServiceProvider to your provider array within `app/confi
 
 ### Configuration
 
-To publish boilerplate configuration files, run:
+To publish a boilerplate configuration file, run:
 
 `php artisan config:publish bradleyboy/laravel-braintree`
 
@@ -50,7 +50,7 @@ You can setup different environmental configurations by creating matching folder
 
 Once setup, you can use the Braintree PHP classes as spelled out in the [documentation](https://www.braintreepayments.com/docs/php/transactions/overview).
 
-### braintree.js
+#### braintree.js
 
 If you are using [braintree.js](https://www.braintreepayments.com/docs/javascript), you can easily output your client side encryption key in your Blade views:
 
