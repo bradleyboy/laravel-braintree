@@ -1,40 +1,18 @@
 Braintree for Laravel 4
 ==============
 
-### Danger, Will Robinson
-
-This is in alpha. Still trying to work out the kinks. Pull requests and feedback welcome.
-
-Integrates the Braintree PHP library with Laravel 4 via a ServiceProvider, config, and Blade extensions.
-
 ### Installation
 
-I'm keeping this off packagist for now until it is more stable. This service provider uses [Matt Jansen's fork of the braintree/braintree_php repo](https://github.com/mattjanssen/braintree_php) for its improved autoloader.
-
-Since neither of the repos are in Packagist, you need to add them to your Laravel project's composer.json file:
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/bradleyboy/laravel-braintree"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/mattjanssen/braintree_php"
-        }
-    ],
-
-Then, include them as dependencies:
+In your Laravel project's composer.json file, add `laravel-braintree` as a dependency:
 
     "require": {
         "laravel/framework": "4.0.*",
-        "braintree/braintree_php": "psr-0-dev",
         "bradleyboy/laravel-braintree": "dev-master",
     },
     
-*Important: Be sure to specify the `psr-0-dev` branch for brantree/braintree_php so that it picks up Matt's fork.*
+You do *not* need to add any other dependencies, as `laravel-braintree` loads in the other dependencies automatically.
 
-Finally, do a `composer install`.
+Finally, do a `composer update`.
 
 Once installed, add the ServiceProvider to your provider array within `app/config/app.php`:
 
@@ -46,11 +24,13 @@ Once installed, add the ServiceProvider to your provider array within `app/confi
 )
 ~~~
 
-Finally, publish the configuration files via `php artisan config:publish bradleyboy/laravel-braintree`.
-
 ### Configuration
 
-Once you have published the configuration files, you can set your various API keys in `app/config/packages/bradleyboy/laravel-braintree/braintree.php`:
+To publish boilerplate configuration files, run:
+
+`php artisan config:publish bradleyboy/laravel-braintree`
+
+Then open `app/config/packages/bradleyboy/laravel-braintree/braintree.php` to setup your environment and keys:
 
 ~~~
 <?php
@@ -68,19 +48,11 @@ You can setup different environmental configurations by creating matching folder
 
 ### Usage
 
-This service provider automaticall sets up the Braintree PHP library and also configures your API key from the configuration. Use the PHP library as normal, except that you will need to call the classes using the namespace. For example, instead of this:
+Once setup, you can use the Braintree PHP classes as spelled out in the [documentation](https://www.braintreepayments.com/docs/php/transactions/overview).
 
-~~~
-Braintree_Transaction::sale( ...
-~~~
+### braintree.js
 
-Use:
-
-~~~
-Braintree\Transaction::sale( ...
-~~~
-
-In your Blade views, you may output your Braintree Client Side Encryption Key using the `@braintreeClientSideEncryptionKey` Blade extension:
+If you are using [braintree.js](https://www.braintreepayments.com/docs/javascript), you can easily output your client side encryption key in your Blade views:
 
 ~~~
 <script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
@@ -90,3 +62,6 @@ In your Blade views, you may output your Braintree Client Side Encryption Key us
 </script>
 ~~~
 
+### Credits
+
+Thanks to the [Abodeo/laravel-stripe](https://github.com/Abodeo/laravel-stripe) package, as I used it as a starting point.
