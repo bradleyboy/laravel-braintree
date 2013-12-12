@@ -3,13 +3,10 @@ Braintree for Laravel 4
 
 ### Installation
 
-In your Laravel project's composer.json file, add `laravel-braintree` as a dependency:
+In your Laravel project's composer.json file, add `laravel-braintree` as a dependency in the require object:
 
 ```js
-"require": {
-    "laravel/framework": "4.0.*",
-    "bradleyboy/laravel-braintree": "dev-master",
-}
+"bradleyboy/laravel-braintree": "dev-master"
 ```
     
 You do *not* need to add any other dependencies, as `laravel-braintree` loads in the other dependencies automatically.
