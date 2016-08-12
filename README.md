@@ -1,3 +1,5 @@
+**Note**: This package is no longer maintained, use [oureastudios/laravel5-braintree](https://github.com/oureastudios/laravel5-braintree) instead.
+
 Braintree for Laravel 4
 ==============
 
